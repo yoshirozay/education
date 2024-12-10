@@ -20,7 +20,7 @@ func linearTime(_ A: [Int]) -> Int {
     }
     return 1
 }
-
+```
 ## Constant Time - 0(1)
 Constant Time, where the algorithm does a calculation and returns a value, this notation is O(1) (extremely quick)
 
@@ -29,7 +29,7 @@ func constantTime(_ n: Int) -> Int {
     let result = n * n
     return result
 }
-
+```
 ## Logarithmic Time - O(log n)
 Logarithmic Time, the algorithm loops and cuts the value in half each time (binary search tree)
 
@@ -43,8 +43,8 @@ func logarithmicTime(_ N: Int) -> Int {
     }
     return result
 }
-
-##Quadratic Time - O(n²)
+```
+## Quadratic Time - O(n²)
 Quadratic Time, the algorithm time doubles because of two for loops, with one embedded in each other.
 
 ```swift
