@@ -21,7 +21,7 @@ What happens when the Array isn't big enough since it's a fixed size? (not in Sw
 In Swift, every array reserves a specific amount of memory to hold its elements. This copying process only happens when you add elements to an array and that array begins to exceed its reserved capacity. Swift arrays handle the heavy lifting for us!
 
 ``` swift
-import UIKit
+import SwiftUI
 
 /*
  Rotate array to right N times.
