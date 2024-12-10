@@ -1,0 +1,16 @@
+        ScrollView {
+            LazyVStack(spacing: -20) {
+                ForEach(0..<20) { index in
+                    CardView(index: index)
+                        .scrollTransition { effect, phase in
+                            effect
+                                .opacity(phase.isIdentity ? 1 : 0)
+                                .scaleEffect(phase.isIdentity ? 1 : 0.3)
+                                .blur(radius: phase.isIdentity ? 0 : 10)
+                                .offset(x: offset(for: phase))
+                                
+                        }
+                }
+            }
+            .padding()
+        }
