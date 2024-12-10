@@ -5,7 +5,6 @@ A custom scroll transition effect for SwiftUI views
 
 ## Example Usage
 ```swift
-import SwiftUI
 
 struct ContentView: View {
     var body: some View {
