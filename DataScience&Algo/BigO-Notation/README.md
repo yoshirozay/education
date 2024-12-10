@@ -64,3 +64,54 @@ When you embed one loop in another as you do with Quadratic Time, you will still
 
 ## Space Time Tradeoff
 How do you improve a quadratic time algorithm? By adding more space. Creating another item to help improve the algorithm ultimately increases space (memory). Some items are 0(1) complexity (variables) while others are 0(n) complexity (arrays). Data Structures & Algos is about managing this tradeoff.
+
+Take this typicaly interview question for example:
+
+> Given two arrays, create a function that let's a user know whether these two arrays contain any common items.
+
+A brute force way to answer this question would be to loop through every element in both arrays until a match is found. Very efficient in terms of space. Slow in terms of time O(n^2).
+
+```swift
+// Naive brute force O(n^2)
+func commonItemsBrute(_ A: [Int], _ B: [Int]) -> Bool {
+    for i in 0..<A.count {
+        for j in 0..<B.count {
+            if A[i] == B[j] {
+                return true
+            }
+        }
+    }
+    return false
+}
+commonItemsBrute([1, 2, 3], [4, 5, 6])
+commonItemsBrute([1, 2, 3], [3, 5, 6])
+```
+
+On the other hand if we were OK sacrificing some space, we could get a better time if we created a Hash Map of one array and then used it to quickly look-up the answer in the other.
+
+```swift
+// Convert to hash and lookup via other index
+func commonItemsHash(_ A: [Int], _ B: [Int]) -> Bool {
+    
+    // Still looping...but not nested - O(2n) vs O(n^2)
+    var hashA = [Int: Bool]()
+    for a in A { // O(n)
+        hashA[a] = true
+    }
+    
+    // Now lookup in the hash to see if elements of B exist
+    for b in B {
+        if hashA[b] == true {
+            return true
+        }
+    }
+    return false
+}
+commonItemsHash([1, 2, 3], [4, 5, 6])
+commonItemsHash([1, 2, 3], [3, 5, 6])
+```
+
+This is an example of trading of space for time. The brute force way required no extra space. Here is was very good. But in terms of time it was very slow. Not performant.
+
+By taking some space however (the extra Hash Map), we gained a lot of time, and got a much faster algorith (O(n)) as a result.
+
