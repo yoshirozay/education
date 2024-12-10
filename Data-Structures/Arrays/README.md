@@ -1,29 +1,46 @@
-What happens when an array gets too big? What happens when you an insert an element in the middle of an array?
+# Array Operations & Performance
 
-An array is a collection of elements of the same type that can be set and retrieved by a continuous set of integers, also known as indeces (or index). 
+An array is a collection of elements of the same type that can be set and retrieved by a continuous set of integers, also known as indices (or index).
 
-Three things to know:
+## Key Characteristics
 
-Arrays can contain anything
-Arrays are of a fixed size (except for Swift)
-Arrays have random access O(1), linked lists cant do this, stacks & queues can't, binary search trees can't either.
+* Arrays can contain anything
+* Arrays are of a fixed size (except for Swift)
+* Arrays have random access O(1) - unlike linked lists, stacks, queues, or binary search trees
 
 The ability to get/set an element at any location at O(1) "Constant Time" is what makes arrays so great. No matter how big the array is, you can reach in and get the index at Constant Time. This is what makes Array the most popular data structure.
 
-Mechanics worth understanding: Insert, Delete, Update
+## Core Operations
 
-When we insert an element into an array, we are really doing three things, we're copying, inserting, and incrementing. This process is O(n) Linear Time, because we are dependent on the number of elements in the array when copying. 
+### Insert - O(n)
+When we insert an element into an array, we are really doing three things:
+1. Copying elements to make space
+2. Inserting the new element
+3. Incrementing array size
 
-Deleting an element into an array is similar to inserting, but we are copying down. It has Linear Time O(n)
+This process is O(n) Linear Time, because we are dependent on the number of elements in the array when copying.
 
-What happens when the Array isn't big enough since it's a fixed size? (not in Swift). The solution would be to double the size of the array, copy, insert a new element at the end. This process takes O(n) time. 
+### Delete - O(n)
+Deleting an element from an array is similar to inserting, but we are copying down. It has Linear Time O(n).
 
+### Update - O(1)
+Direct access and modification of elements at any index.
+
+## Handling Growth
+
+What happens when the Array isn't big enough since it's a fixed size? (not in Swift)
+The solution would be to:
+1. Double the size of the array
+2. Copy existing elements
+3. Insert new element at the end
+
+This growth process takes O(n) time.
+
+### Swift Arrays
 In Swift, every array reserves a specific amount of memory to hold its elements. This copying process only happens when you add elements to an array and that array begins to exceed its reserved capacity. Swift arrays handle the heavy lifting for us!
 
-``` swift
-import SwiftUI
+## Interview Questions 
 
-/*
  Rotate array to right N times.
  https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
  
@@ -37,7 +54,8 @@ import SwiftUI
      [6, 3, 8, 9, 7] -> [7, 6, 3, 8, 9]
      [7, 6, 3, 8, 9] -> [9, 7, 6, 3, 8]
 
- */
+``` swift
+import SwiftUI
 
 func solution(A: [Int], K: Int) -> [Int] {
     guard !A.isEmpty else { return [] }
@@ -61,10 +79,7 @@ solution(A: [3, 8, 9, 7, 6], K: 3) // [9, 7, 6, 3, 8]
 
 
 ```
-``` swift
-import SwiftUI
 
-/*
  We are given a string S representing a phone number, which we would like to reformat. String S consists of N characters: digits, spaces, and/or dashes. It contains at least two digits.
  
  Spaces and dashes in string S can be ignored. We want to reformat the given phone number is such a way that the digits are grouped in blocks of length three, separated by single dashes. If necessary, the final block or the last two blocks can be of length two.
@@ -85,7 +100,9 @@ import SwiftUI
  - spaces and dashes don't matter
  - if the block ends in anything other than -xxx or -xx reformat to a block of two like xx-xx (not obvious)
  
- */
+``` swift
+import SwiftUI
+
 func solution(_ S : String) -> String {
     // do your work here
     let noSpace = S.replacingOccurrences(of: " ", with: "")
