@@ -1,4 +1,4 @@
-# education
-life long learning
+# Education
+A Swift repository
 
 [Scroll Transition](./scrollTransition)
