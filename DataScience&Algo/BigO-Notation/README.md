@@ -1,13 +1,15 @@
 # What is Big O Notation?
-Big O Notation is the language computer scientists use when comparing the performance of algorithims. It's all about dominant operations
-  time (how fast)
-  space (how much memory)
 
-Big O Notation is benchmarked against the worst case scenario (the longest this algorithim will take).
+Big O Notation is the language computer scientists use when comparing the performance of algorithms. It's all about dominant operations:
+* Time (how fast)
+* Space (how much memory)
 
-There's typically a linear relationship between the amount of elements in an algorithim and its runtime, although it is not perfectly linear because computers are so fast now. 
+Big O Notation is benchmarked against the worst case scenario (the longest this algorithm will take).
 
-Linear time is referred to as 0(n) and is present wherever there is a loop, where n is the time complexity based on the length of the object.
+There's typically a linear relationship between the amount of elements in an algorithm and its runtime, although it is not perfectly linear because computers are so fast now. 
+
+## Linear Time - O(n)
+Linear time is referred to as O(n) and is present wherever there is a loop, where n is the time complexity based on the length of the object.
 
 ```swift
 func linearTime(_ A: [Int]) -> Int {
@@ -18,19 +20,19 @@ func linearTime(_ A: [Int]) -> Int {
     }
     return 1
 }
-```
 
-Constant Time, where the algorithm does a calculation and returns a value, this notation is 0(1) (extremely quick)
+## Constant Time - 0(1)
+Constant Time, where the algorithm does a calculation and returns a value, this notation is O(1) (extremely quick)
 
 ```swift
 func constantTime(_ n: Int) -> Int {
     let result = n * n
     return result
 }
-```
 
+## Logarithmic Time - O(log n)
+Logarithmic Time, the algorithm loops and cuts the value in half each time (binary search tree)
 
-Logaithmic Time, the algorithm loops and cuts the value in half each time (binary search tree)
 ```swift
 func logarithmicTime(_ N: Int) -> Int {
     var n = N
@@ -41,9 +43,9 @@ func logarithmicTime(_ N: Int) -> Int {
     }
     return result
 }
-```
 
-Quadratic Time, the algorithm time doubles because of two for loops, with one embedded in eachother.
+##Quadratic Time - O(n²)
+Quadratic Time, the algorithm time doubles because of two for loops, with one embedded in each other.
 
 ```swift
 func quadratic(_ n: Int) -> Int {
@@ -56,4 +58,3 @@ func quadratic(_ n: Int) -> Int {
     }
     return result
 }
-```
