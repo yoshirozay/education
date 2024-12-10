@@ -31,7 +31,7 @@ func constantTime(_ n: Int) -> Int {
 }
 ```
 ## Logarithmic Time - O(log n)
-Logarithmic Time, the algorithm loops and cuts the value in half each time (binary search tree)
+Logarithmic Time, the algorithm loops and cuts the value in half each time (binary search tree, extremely fast)
 
 ```swift
 func logarithmicTime(_ N: Int) -> Int {
@@ -45,7 +45,7 @@ func logarithmicTime(_ N: Int) -> Int {
 }
 ```
 ## Quadratic Time - O(n²)
-Quadratic Time, the algorithm time doubles because of two for loops, with one embedded in each other.
+Quadratic Time, the algorithm time doubles because of two for loops, with one embedded in each other. (very slow)
 
 ```swift
 func quadratic(_ n: Int) -> Int {
@@ -58,3 +58,9 @@ func quadratic(_ n: Int) -> Int {
     }
     return result
 }
+```
+
+When you embed one loop in another as you do with Quadratic Time, you will still get the correct answer / code that works, but it won't be performative. Quadratic is bad, Linear is okay, Logarithmic and Constant are good.
+
+## Space Time Tradeoff
+How do you improve a quadratic time algorithm? By adding more space. Creating another item to help improve the algorithm ultimately increases space (memory). Some items are 0(1) complexity (variables) while others are 0(n) complexity (arrays). Data Structures & Algos is about managing this tradeoff.
