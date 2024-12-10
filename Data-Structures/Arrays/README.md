@@ -40,10 +40,12 @@ import UIKit
  */
 
 func solution(A: [Int], K: Int) -> [Int] {
+    guard !A.isEmpty else { return [] }
+    guard K > 0 else { return A }
     // for each K, pop the last element and append to the beginning of array
     var array = A
+    let index = array.count
     for _ in 1...K {
-        let index = array.count
         let lastElement = array[index-1]
         array.popLast()
         array.insert(lastElement, at: 0)
@@ -56,5 +58,6 @@ solution(A: [1, 2, 3, 4, 5], K: 2) // 4 5 1 2 3
 solution(A: [1, 2, 3, 4, 5], K: 3) // 3 4 5 1 2
 
 solution(A: [3, 8, 9, 7, 6], K: 3) // [9, 7, 6, 3, 8]
+
 
 ```
