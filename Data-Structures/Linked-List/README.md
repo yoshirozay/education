@@ -41,7 +41,7 @@ let node2 = Node(2, node3)
 let node1 = Node(1, node2)
 
 ```
-
+### Add to Front
 Updating Linked Lists is all about manipulating pointers, it's easier to think about Linked List when the node is an UUID(). To update the head of the node, you simply point the head of the Linked List to the new UUID, and update the new UUID's pointer (new head) to the previous head. This process is O(1), Constant Time
 
 ``` swift
@@ -51,6 +51,7 @@ Updating Linked Lists is all about manipulating pointers, it's easier to think a
         head = newNode
     }
 ```
+### Insert to Position
 As for Inserting a new element at a specific location, you need to replace the UUID pointer from the node before it with the new UUID, and give the new node the old UUID.
 
 ```swift
