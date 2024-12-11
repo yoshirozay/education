@@ -1,10 +1,28 @@
-Few things arrays cant do? Inserting at the front, it takes linear time O(N). Arrays can take a lot of space because they have to double in size when they are full. We need a structure that can quickly add elements at the front as well as contstantly resize.
+# Linked List Overview
 
-A LinkedList is a linear collection of data elements sequentially linked together by a series of nodes (cars on a train). Three elements to a linked list: head, node, and tail. We add elements to the head, the tail always points to the ether (nil) and each node is a car on the train with a pointer, pointing to the next car on the train.
+## Limitations of Arrays
+- Inserting at the front takes linear time O(N)
+- Arrays require significant space due to doubling in size when full
+- Need for a more flexible structure that allows quick front insertions and dynamic resizing
 
-The LinkedList's killer feature is that it can add new elements to the front at O(1), Constant Time.
+## What is a Linked List?
+A Linked List is a linear collection of data elements sequentially linked together by a series of nodes (analogous to cars on a train). The structure consists of three main elements:
+1. Head 
+2. Node
+3. Tail
 
-Walking a Linked List is O(n), whenever we see a "while" loop, we are walking the linked list
+## Key Features
+- Elements are added at the head
+- The tail always points to nil (the ether)  
+- Each node acts like a train car with a pointer to the next node
+
+## Performance Characteristics
+- **Primary Advantage**: Adding elements to the front in O(1) constant time
+- **Traversal**: Walking a Linked List is O(n)
+ - Note: The presence of a "while" loop typically indicates list traversal
+
+## Implementation Notes
+Head → Node → Node → Tail → nil
 
 ``` swift
 
