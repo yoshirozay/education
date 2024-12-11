@@ -88,3 +88,5 @@ Similar to inserting at position, to delete a node you simply need to remove the
         previousNode?.next = node?.next
     }
 ```
+### Clearing a Linked List
+By simply setting the head of the list = nil, the rest of the list is no longer referenced so Swift will clean up the rest of the list 
