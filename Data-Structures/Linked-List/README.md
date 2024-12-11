@@ -52,3 +52,20 @@ Updating Linked Lists is all about manipulating pointers, it's easier to think a
     }
 ```
 As for Inserting a new element at a specific location, you need to replace the UUID pointer from the node before it with the new UUID, and give the new node the old UUID.
+
+```swift
+  func insert(position: Int, data: Int) {
+        if position == 0 {
+            addFront(data)
+            return
+        }
+        let newNode = Node(data)
+        var currentNode = head
+        
+        for _ in 0..<position - 1 {
+            currentNode = currentNode?.next!
+        }
+        currentNode?.next = newNode
+        newNode.next = currentNode?.next
+    }
+```
