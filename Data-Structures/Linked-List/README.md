@@ -66,7 +66,7 @@ As for Inserting a new element at a specific location, you need to replace the U
         for _ in 0..<position - 1 {
             currentNode = currentNode?.next!
         }
-        currentNode?.next = newNode
         newNode.next = currentNode?.next
+        currentNode?.next = newNode
     }
 ```
