@@ -16,6 +16,6 @@ class Node {
 
 let node3 = Node(3)
 let node2 = Node(2, node3)
-let node1 = Node(2, node2)
+let node1 = Node(1, node2)
 
 ```
