@@ -2,6 +2,8 @@ Few things arrays cant do? Inserting at the front, it takes linear time O(N). Ar
 
 A LinkedList is a linear collection of data elements sequentially linked together by a series of nodes (cars on a train). Three elements to a linked list: head, node, and tail. We add elements to the head, the tail always points to the ether (nil) and each node is a car on the train with a pointer, pointing to the next car on the train.
 
+The LinkedList's killer feature is that it can add new elements to itself at O(1), Constant Time.
+
 ``` swift
 
 class Node {
