@@ -4,6 +4,8 @@ A LinkedList is a linear collection of data elements sequentially linked togethe
 
 The LinkedList's killer feature is that it can add new elements to the front at O(1), Constant Time.
 
+Walking a Linked List is O(n), whenever we see a "while" loop, we are walking the linked list
+
 ``` swift
 
 class Node {
