@@ -70,3 +70,21 @@ As for Inserting a new element at a specific location, you need to replace the U
         currentNode?.next = newNode
     }
 ```
+### Deleting
+Similar to inserting at position, to delete a node you simply need to remove the UUID reference of the deletion target from the node prior and reassign it to the node infront of the deletion target. If the deletion target is the head of the linked list, you simply reasign the head to the second node. This process is O(n) since you need to walk through the list to get to the deletion location.
+
+```swift
+    func delete(at position: Int) {
+        if position == 0 {
+            self.deleteFirst()
+            return
+        }
+        var node = head
+        var previousNode: Node?
+        for _ in 0..<position {
+            previousNode = node
+            node = node?.next
+        }
+        previousNode?.next = node?.next
+    }
+```
