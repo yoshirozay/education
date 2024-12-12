@@ -1,4 +1,25 @@
-Stacks are every day objects where you can add and remove things from the stack, this action of putting items on and off (pushing and popping) are O(1) operations. Last In First Out (LIFO). This is great for undo / redo functions, back and forward in the browser. 
+# Stack Data Structure
+
+## Overview
+A Stack is a common data structure modeled after everyday objects where items can be added and removed from the top. It follows the Last In First Out (LIFO) principle.
+
+## Operations
+- **Push**: Adding items to the stack - O(1)
+- **Pop**: Removing items from the stack - O(1)
+
+## Key Features
+- Last In First Out (LIFO) structure
+- Both push and pop operations occur in constant time O(1)
+- Simple and intuitive implementation
+
+## Common Applications
+- Undo/Redo functionality in applications
+- Browser back/forward navigation
+- Function call management in programming languages
+
+## Performance Characteristics
+- **Primary Advantage**: O(1) constant time for both push and pop operations
+- Ideal for scenarios requiring LIFO data management
 
 ```swift
 class Stack<T> {
@@ -26,7 +47,31 @@ class Stack<T> {
 }
 ```
 
-Queue's have the inverse Big O Notation as Linked Lists, they can append to the back of the queue lightning fast O(1) but are slower to add to the front of the queue O(N). First in First Out (FIFO)
+# Queue Data Structure
+
+## Overview
+A Queue is a data structure that follows the First In First Out (FIFO) principle, operating inversely to Linked Lists in terms of performance characteristics.
+
+## Performance Characteristics
+- **Adding to Back**: O(1) constant time (efficient)
+- **Adding to Front**: O(N) linear time (requires traversal)
+- Operations follow FIFO order
+
+## Key Features
+- First In First Out (FIFO) structure
+- Optimized for back-end operations
+- Requires full traversal for front-end modifications
+
+## Implementation Notes
+- Excellent for situations requiring FIFO processing
+- Performance trade-off: Fast rear operations, slower front operations
+- Contrast with Linked List: Queues excel at back operations while Linked Lists excel at front operations
+
+## Common Applications
+- Task scheduling
+- Resource management
+- Print job processing
+- Message buffering
 
 ```swift
 /*
