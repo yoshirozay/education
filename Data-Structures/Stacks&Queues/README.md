@@ -64,3 +64,41 @@ class Queue<T> {
 ```
 
 Stacks & Queues are often built using Arrays or Linked Lists, but mainly the Array because the Swift Array has push and pop like functionality already built in.
+
+## Interview Question
+/*
+ Rotate array to right N times.
+ https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
+ 
+ For example, given
+
+     A = [3, 8, 9, 7, 6]
+     K = 3
+ the function should return [9, 7, 6, 3, 8]. Three rotations were made:
+
+     [3, 8, 9, 7, 6] -> [6, 3, 8, 9, 7]
+     [6, 3, 8, 9, 7] -> [7, 6, 3, 8, 9]
+     [7, 6, 3, 8, 9] -> [9, 7, 6, 3, 8]
+
+ */
+```swift
+func solution(A: [Int], K: Int) -> [Int] {
+    guard !A.isEmpty else { return [] }
+    guard K > 0 else { return A }
+    // for each K, pop the last element and append to the beginning of array
+    var array = A
+    let index = array.count
+    for _ in 1...K {
+        let lastElement = array[index-1]
+        array.popLast()
+        array.insert(lastElement, at: 0)
+    }
+    return array
+}
+
+solution(A: [1, 2, 3, 4, 5], K: 1) // 5 1 2 3 4
+solution(A: [1, 2, 3, 4, 5], K: 2) // 4 5 1 2 3
+solution(A: [1, 2, 3, 4, 5], K: 3) // 3 4 5 1 2
+
+solution(A: [3, 8, 9, 7, 6], K: 3) // [9, 7, 6, 3, 8]
+```
