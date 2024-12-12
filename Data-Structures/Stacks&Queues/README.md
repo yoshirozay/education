@@ -66,7 +66,8 @@ class Queue<T> {
 Stacks & Queues are often built using Arrays or Linked Lists, but mainly the Array because the Swift Array has push and pop like functionality already built in.
 
 ## Interview Question
-/*
+ ### #1
+ /*
  Rotate array to right N times.
  https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
  
@@ -102,7 +103,7 @@ solution(A: [1, 2, 3, 4, 5], K: 3) // 3 4 5 1 2
 
 solution(A: [3, 8, 9, 7, 6], K: 3) // [9, 7, 6, 3, 8]
 ```
-
+ ### #2
 /*
  Rotate array to left N times.
  
@@ -139,4 +140,23 @@ solution(A: [1, 2, 3, 4, 5], K: 3) // 3 4 5 1 2
 
 solution(A: [3, 8, 9, 7, 6], K: 3) // [9, 7, 6, 3, 8]
 
+```
+ ### #3
+  Giving a String, write a function that reverses the String using a stack.
+  ```swift
+  func solution(_ text: String) -> String {
+    // Do your work here...
+    var chars = Array(text)
+    var results = [Character]()
+    for item in chars {
+        let last = chars[chars.count-1]
+        results.append(last)
+        chars.remove(at: chars.count-1)
+    }
+    print("results = \(results)")
+    return String(results)
+}
+
+solution("abc") // cba
+solution("Would you like to play a game?")
 ```
