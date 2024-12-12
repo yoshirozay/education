@@ -144,14 +144,15 @@ solution(A: [3, 8, 9, 7, 6], K: 3) // [9, 7, 6, 3, 8]
  ### #3
   Giving a String, write a function that reverses the String using a stack.
   ```swift
-  func solution(_ text: String) -> String {
+func solution(_ text: String) -> String {
     // Do your work here...
     var chars = Array(text)
     var results = [Character]()
-    for item in chars {
-        let last = chars[chars.count-1]
+    var count = chars.count-1
+    while count >= 0 {
+        let last = chars[count]
         results.append(last)
-        chars.remove(at: chars.count-1)
+        count = count - 1
     }
     print("results = \(results)")
     return String(results)
@@ -159,4 +160,5 @@ solution(A: [3, 8, 9, 7, 6], K: 3) // [9, 7, 6, 3, 8]
 
 solution("abc") // cba
 solution("Would you like to play a game?")
+
 ```
