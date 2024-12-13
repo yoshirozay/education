@@ -21,7 +21,7 @@ A Hash Table is a data structure that implements key-value pair lookups with exc
 2. Large number is modulated (%) by array size
 3. Result becomes the index for storage/lookup
 
-## Collision Handling
+## Collision Handling - O(n)
 * **What is a Collision?**
   * Occurs when two different items generate the same index
   * Can happen even with excellent hash functions
