@@ -3,6 +3,12 @@
 ## Overview
 A Binary Tree is a hierarchical data structure where data is stored in nodes, with each node having at most two children. This structure allows for efficient data organization and retrieval, making it fundamental in computer science.
 
+## Performance Characteristics
+* Insertion: O(log n) for balanced trees
+* Search: O(log n) for balanced trees
+* Deletion: O(log n) for balanced trees
+* Space Complexity: O(n)
+  
 ### Binary Tree Search
 
 During a Binary Tree Search, the search asks the tree a simple question. Is the value I am looking for bigger or smaller than this current node? If smaller, go to the left, if bigger, go to the right. This process splits the tree in half each layer it does down. This is why the process is O(log n), because each layer splits the total time in half. This is the binary tree's killer feature, splitting the run time in half.
@@ -75,11 +81,6 @@ During a Binary Tree Search, the search asks the tree a simple question. Is the 
  * Memory is a constraint (uses less space than BFS)
  * Need to explore all paths to leaves
 
-## Performance Characteristics
-* Insertion: O(log n) for balanced trees
-* Search: O(log n) for balanced trees
-* Deletion: O(log n) for balanced trees
-* Space Complexity: O(n)
 
 ## Common Applications
 * File system organization
