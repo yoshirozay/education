@@ -3,6 +3,34 @@
 ## Overview
 A Binary Tree is a hierarchical data structure where data is stored in nodes, with each node having at most two children. This structure allows for efficient data organization and retrieval, making it fundamental in computer science.
 
+### Binary Tree Search
+
+During a Binary Tree Search, the search asks the tree a simple question. Is the value I am looking for bigger or smaller than this current node? If smaller, go to the left, if bigger, go to the right. This process splits the tree in half each layer it does down. This is why the process is O(log n), because each layer splits the total time in half. This is the binary tree's killer feature, splitting the run time in half.
+
+```swift
+ func find(key: Int) -> Int? {
+        guard let root = root else { return nil }
+        guard let node = find(root, key) else { return nil }
+        
+        return node.key
+    }
+
+    private func find(_ node: Node?, _ key: Int) -> Node? {
+        guard let node = node else { return nil }
+        
+        if node.key == key {
+            return node
+        } else if key < node.key {
+            return find(node.left, key)
+        } else if key > node.key {
+            return find(node.right, key)
+        }
+        return nil
+        // Note: duplicate keys not allowed so don't need to check
+    }
+
+```
+
 ## Tree Types
 
 ### Full Binary Tree
@@ -61,28 +89,3 @@ A Binary Tree is a hierarchical data structure where data is stored in nodes, wi
 * Huffman coding in data compression
 * Abstract Syntax Trees in compilers
 
-During a Binary Tree Search, the search asks the tree a simple question. Is the value I am looking for bigger or smaller than this current node? If smaller, go to the left, if bigger, go to the right. This process splits the tree in half each layer it does down. This is why the process is O(log n), because each layer splits the total time in half. This is the binary tree's killer feature, splitting the run time in half.
-
-```swift
- func find(key: Int) -> Int? {
-        guard let root = root else { return nil }
-        guard let node = find(root, key) else { return nil }
-        
-        return node.key
-    }
-
-    private func find(_ node: Node?, _ key: Int) -> Node? {
-        guard let node = node else { return nil }
-        
-        if node.key == key {
-            return node
-        } else if key < node.key {
-            return find(node.left, key)
-        } else if key > node.key {
-            return find(node.right, key)
-        }
-        return nil
-        // Note: duplicate keys not allowed so don't need to check
-    }
-
-```
