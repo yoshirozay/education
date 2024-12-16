@@ -85,8 +85,24 @@ When deleting, there are three cases to handle:
 3) Two Children
 
 No Child - Find the reference that has no child, set the value to null
+```swift
+  // Case 1: No child
+            if nd.left == nil && nd.right == nil {
+                return nil
+            }
+```
 
 One Child - Find the node that we want to delete's child, replace the to be deleted node with the child itself and set the child = nil.
+
+```swift
+ // Case 2: One child
+            else if nd.left == nil {
+                return nd.right // check delete(&insideNode.right, key) not necessary because we have already found
+            }
+            else if nd.right == nil {
+                return nd.left // delete(&insideNode.left, key)
+            }
+```
 
 Two Children - Most complicated option.
 Essentially need to first convert the tree into a One Child tree by finding the minimum on the right hand side of the tree, and then replace the to be deleted node with the child (minimum) and set the child = nil.
