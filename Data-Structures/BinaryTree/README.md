@@ -240,7 +240,7 @@ Essentially need to first convert the tree into a One Child tree by finding the 
      }
 
 ```swift
-     class Node {
+class Node {
     var key: Int
     var left: Node?
     var right: Node?
