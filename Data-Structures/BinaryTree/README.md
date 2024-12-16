@@ -78,6 +78,16 @@ To find the minimum, keep traversing down the left hand side of the tree until w
     }
 ```
 
+## Handling Deletes
+When deleting, there are three cases to handle:
+1) No Child
+2) One Child
+3) Two Children
+
+No Child - Find the reference that has no child, set the value to null
+One Child - Find the node that we want to delete's child, replace the to be deleted node with the child itself.
+Two Children - Most complicated option. Essentially need to first convert the tree into a One Child tree by finding the minimum on the right hand side of the tree, and then replace the to be deleted node with the child (minimum).
+
 
 ## Tree Types
 
