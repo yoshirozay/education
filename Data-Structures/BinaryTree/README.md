@@ -37,6 +37,36 @@ During a Binary Tree Search, the search asks the tree a simple question. Is the 
 
 ```
 
+## Inserting
+Similar process to Searching, the search asks the tree a simple question. Is the value I am looking for bigger or smaller than this current node? If smaller, go to the left, if bigger, go to the right. Eventually, it will find the correct location and Insert into the Binary Search Tree
+
+```swift
+func insert(key: Int) {
+        root = insertItem(root, key)
+    }
+    
+    private func insertItem(_ node: Node?, _ key: Int) -> Node {
+        
+        // If node is nil - set it here. We are done.
+        guard let node = node else {
+            let node = Node(key)
+            return node
+        }
+        
+        if key < node.key {
+            node.left = insertItem(node.left, key)
+        }
+        if key > node.key {
+            node.right = insertItem(node.right, key)
+        }
+        
+        // If we get here we have have hit the bottom of our tree with a duplicate.
+        // Since duplicates are not allowed in BSTs, simply ignore the duplicate,
+        // and return our fully constructed tree. We are done!
+        return node;
+    }
+```
+
 ## Tree Types
 
 ### Full Binary Tree
