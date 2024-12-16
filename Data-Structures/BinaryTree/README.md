@@ -189,8 +189,32 @@ Essentially need to first convert the tree into a One Child tree by finding the 
 * Uses a stack (or recursion) to track nodes
 * Three main variants:
  * Pre-order (Root, Left, Right)
+```swift
+   func preOrderTraversal(node: Node?) {
+        guard let node = node else { return }
+        print(node.key) // root
+        preOrderTraversal(node: node.left)
+        preOrderTraversal(node: node.right)
+    }
+```
  * In-order (Left, Root, Right) (used for copying a tree)
+```swift
+  func inOrderTraversal(node: Node?) {
+        guard let node = node else { return }
+        inOrderTraversal(node: node.left)
+        print(node.key) // root
+        inOrderTraversal(node: node.right)
+    }
+```
  * Post-order (Left, Right, Root) (used for deletion)
+  ```swift
+    func postOrderTraversal(node: Node?) {
+        guard let node = node else { return }
+        postOrderTraversal(node: node.left)
+        postOrderTraversal(node: node.right)
+        print(node.key) // root
+    }
+```
 * Best when:
  * Solution is likely to be deep in the tree
  * Memory is a constraint (uses less space than BFS)
