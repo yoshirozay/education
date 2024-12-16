@@ -189,8 +189,8 @@ Essentially need to first convert the tree into a One Child tree by finding the 
 * Uses a stack (or recursion) to track nodes
 * Three main variants:
  * Pre-order (Root, Left, Right)
- * In-order (Left, Root, Right)
- * Post-order (Left, Right, Root)
+ * In-order (Left, Root, Right) (used for copying a tree)
+ * Post-order (Left, Right, Root) (used for deletion)
 * Best when:
  * Solution is likely to be deep in the tree
  * Memory is a constraint (uses less space than BFS)
