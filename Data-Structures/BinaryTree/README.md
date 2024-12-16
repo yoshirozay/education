@@ -239,7 +239,7 @@ Essentially need to first convert the tree into a One Child tree by finding the 
         Node right;
      }
 
-     ```swift
+```swift
      class Node {
     var key: Int
     var left: Node?
@@ -277,4 +277,5 @@ private func isBST(_ node: Node?, _ min: Int?, _ max: Int?) -> Bool {
     // if min max OK, go to next level passing in min/max and parent
     return isBST(node.left, min, node.key) && isBST(node.right, node.key, max)
 }
+
 ```
