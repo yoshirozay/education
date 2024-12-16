@@ -66,6 +66,18 @@ func insert(key: Int) {
         return node;
     }
 ```
+## Minimum
+To find the minimum, keep traversing down the left hand side of the tree until we find nil
+```swift
+    var min: Node {
+        if left == nil {
+            return self
+        } else {
+            return left!.min
+        }
+    }
+```
+
 
 ## Tree Types
 
