@@ -92,8 +92,7 @@ No Child - Find the reference that has no child, set the value to null
             }
 ```
 
-One Child - Find the node that we want to delete's child, replace the to be deleted node with the child itself and set the child = nil.
-
+One Child - Find the node that we want to delete's child, replace the to be deleted node with the child itself.
 ```swift
  // Case 2: One child
             else if nd.left == nil {
@@ -105,7 +104,7 @@ One Child - Find the node that we want to delete's child, replace the to be dele
 ```
 
 Two Children - Most complicated option.
-Essentially need to first convert the tree into a One Child tree by finding the minimum on the right hand side of the tree, and then replace the to be deleted node with the child (minimum) and set the child = nil.
+Essentially need to first convert the tree into a One Child tree by finding the minimum on the right hand side of the tree, and then replace the to be deleted node with the child (minimum).
 
 ```swift
     func delete(key: Int) {
