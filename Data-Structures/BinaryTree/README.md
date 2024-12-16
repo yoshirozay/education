@@ -91,6 +91,51 @@ One Child - Find the node that we want to delete's child, replace the to be dele
 Two Children - Most complicated option.
 Essentially need to first convert the tree into a One Child tree by finding the minimum on the right hand side of the tree, and then replace the to be deleted node with the child (minimum) and set the child = nil.
 
+```swift
+    func delete(key: Int) {
+        guard let _ = root else { return }
+        root = delete(&root, key);
+    }
+    
+    private func delete(_  node: inout Node?, _ key: Int) -> Node? {
+        guard let nd = node else { return nil }
+
+        if key < nd.key {
+            nd.left = delete(&nd.left, key)
+        } else if key > nd.key {
+            nd.right = delete(&nd.right, key)
+        } else {
+            // Woohoo! Found you. This is the node we want to delete.
+
+            // Case 1: No child
+            if nd.left == nil && nd.right == nil {
+                return nil
+            }
+            
+            // Case 2: One child
+            else if nd.left == nil {
+                return nd.right // check delete(&insideNode.right, key) not necessary because we have already found
+            }
+            else if nd.right == nil {
+                return nd.left // delete(&insideNode.left, key)
+            }
+            
+            // Case 3: Two children
+            else {
+                // Find the minimum node on the right (could also find max on the left)
+                let minRight = findMin(nd.right!)
+                
+                // Duplicate it by copying its value here
+                nd.key = minRight.key
+                
+                // Now go ahead and delete the node we just duplicated (same key)
+                nd.right = delete(&nd.right, nd.key)
+            }
+        }
+        
+        return nd
+    }
+```
 
 ## Tree Types
 
