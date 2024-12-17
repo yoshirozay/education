@@ -30,7 +30,7 @@ As you calculate higher and higher order of numbers, the algorithm takes longer 
 
 To understand Memoization, it's useful to understand what Fibonacci struggles with. Numbers are recalculated over and over again.
 
-Memoization is an optimization technique that stores expensive calculated results and returns them when asked for again. It's like caching expensive results.
+Memoization is an optimization technique that stores expensive calculated results and returns them when asked for again. It's like caching expensive results. This process reduces the Big O Notation from exponential to O(n) Linear Time!
 
 ```swift
 fibNaive(20) // 20 = 13s / 22 = 54 s
