@@ -1,7 +1,7 @@
 # Binary Trees
 
 ## Overview
-A Binary Tree is a hierarchical data structure where data is stored in nodes, with each node having at most two children. This structure allows for efficient data organization and retrieval, making it fundamental in computer science.
+A Binary Tree is a highly recursive hierarchical data structure where data is stored in nodes, with each node having at most two children. This structure allows for efficient data organization and retrieval, making it fundamental in computer science.
 
 ## Performance Characteristics
 * Insertion: O(log n) for balanced trees
