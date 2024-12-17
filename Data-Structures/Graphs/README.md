@@ -60,69 +60,60 @@ Keep track of each nodes we visited in a Queue (First in First Out) as we traver
 ### Implementation in Swift
 
 ```swift
-// Node class to represent vertices in the graph
-class Node {
-    let value: Int
-    var neighbors: [Node]
-    var visited: Bool
-    
-    init(value: Int) {
-        self.value = value
-        self.neighbors = []
-        self.visited = false
-    }
-    
-    func addNeighbor(_ node: Node) {
-        neighbors.append(node)
-    }
-}
-
-// BFS implementation
-func breadthFirstSearch(startNode: Node) {
-    // Create a queue and add the start node
-    var queue: [Node] = []
-    queue.append(startNode)
-    startNode.visited = true
-    
-    // Process nodes in the queue
-    while !queue.isEmpty {
-        // Remove first node from queue
-        let currentNode = queue.removeFirst()
-        print("Visited node: \(currentNode.value)")
+ // BFS traversal from a given source s
+    func BFS(s: Int) -> [Int] {
         
-        // Add all unvisited neighbors to queue
-        for neighbor in currentNode.neighbors {
-            if !neighbor.visited {
-                queue.append(neighbor)
-                neighbor.visited = true
+        var result = [Int]()
+        
+        // Mark all vertices as not visited
+        var visited = adj.map { _ in false }
+        
+        // Create BFS Queue
+        var queue = Queue<Int>()
+        
+        // Mark first vertex as visited and enqueue
+        visited[s] = true
+        print("Starting at \(s)")
+        queue.add(s)
+        result.append(s)
+        
+        while queue.count > 0 {
+            let current = queue.remove()!
+            print("De-queueing \(current)")
+            
+            // Get all the adjacent vertices of the current vertex
+            // If adjacent has not being visited, mark visited and enqueue
+            
+            for n in adj[current] {
+                if visited[n] == false {
+                    visited[n] = true
+                    print("Queuing \(n)")
+                    queue.add(n)
+                    result.append(n)
+                }
             }
-        }
+         }
+        
+        return result
     }
-}
-
-// Example usage:
-// Create test graph
-let node1 = Node(value: 1)
-let node2 = Node(value: 2)
-let node3 = Node(value: 3)
-let node4 = Node(value: 4)
-let node5 = Node(value: 5)
-
-// Set up connections
-node1.addNeighbor(node2)
-node1.addNeighbor(node3)
-node2.addNeighbor(node4)
-node3.addNeighbor(node4)
-node3.addNeighbor(node5)
-
-// Perform BFS starting from node1
-breadthFirstSearch(startNode: node1)
-// Output:
-// Visited node: 1
-// Visited node: 2
-// Visited node: 3
-// Visited node: 4
-// Visited node: 5
+//
+Starting at 0
+De-queueing 0
+Queuing 1
+De-queueing 1
+Queuing 4
+Queuing 5
+De-queueing 4
+Queuing 6
+De-queueing 5
+Queuing 3
+Queuing 2
+De-queueing 6
+De-queueing 3
+De-queueing 2
+Queuing 7
+De-queueing 7
+//
 ```
 
 ### Time Complexity
