@@ -134,3 +134,5 @@ De-queueing 7
 Starts at a node, and drives deep into the graph ignoring all other nodes on the closest layer, until it hits the end of that tree. This is useful for path finding and cycle detection.
 
 These algorithms are similar, one is based off a Queue and the other a Stack
+
+DPS uses a Stack instead of a Queue. Visit nodes, mark them as visited, as we visit them, we push them and pop them off the stack. In depth first, we start with our neighbours, add them to the stack (instead of the queue) and mark them as visited. We take our most recent popped value, check if it has neighbours, add the neighbors to the stack, mark the neighbour as visited, add its neighbours to the stack, pop them off, and so on. 
