@@ -125,14 +125,14 @@ breadthFirstSearch(startNode: node1)
 // Visited node: 5
 ```
 
-## Time Complexity
+### Time Complexity
 - Time Complexity: O(V + E)
   - V = number of vertices
   - E = number of edges
 - Space Complexity: O(V)
   - Needs to store vertices in the queue
 
-## Key Points
+### Key Points
 1. Uses Queue (FIFO) data structure
 2. Visits all neighbors at current depth before moving deeper
 3. Marks nodes as visited to avoid cycles
