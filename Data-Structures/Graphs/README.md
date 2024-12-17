@@ -41,8 +41,13 @@ Cons: Not space efficient
 Take each verticy, write down its neighbours as a list in an array. By maintaining an array of arrays or a linked list holding these array elements we can quickly build up a collection of neighbours for each verticy and look them up very quickly.
 
 0 -> [1,4]
+
 1 -> [2]
+
 2 -> [ ]
+
 3 -> [1,2]
+
 4 -> [3]
+
 Pros: Fast lookup, easy to find neighbours
