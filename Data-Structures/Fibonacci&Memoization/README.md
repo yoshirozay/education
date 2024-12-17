@@ -1,13 +1,22 @@
-## What is a Fibonacci series?
-1,1,2,3,5,8,13,21...
+# Fibonacci Series Implementation
 
+## What is a Fibonacci Series?
+A Fibonacci sequence is a series of numbers where each number is the sum of the previous two numbers:
+1, 1, 2, 3, 5, 8, 13, 21...
+
+The mathematical formula is:
+```
 fn = f(n-1) + f(n-2)
+```
 
-Series of numbers where every number, after the first two, is the sum of the two preceding ones.
+This sequence appears frequently in nature:
+- Golden ratio
+- Flower petal arrangements
+- Spatial patterns
+- Stock market predictions
 
-This sequence shows up over and over again throughout nature (golden ratio, flowers, space)
-
-This pattern is also very useful for stock predictions.
+## Naive Implementation
+This is the basic recursive implementation, which is highly inefficient:
 
 ```swift
 func fibNaive(_ n: Int) -> Int {
@@ -21,32 +30,50 @@ func fibNaive(_ n: Int) -> Int {
     }
 }
 
-fibNaive(20) // 20 = 13s / 22 = 54 s
+// Example usage:
+// fibNaive(20) // Takes about 13 seconds
+// fibNaive(22) // Takes about 54 seconds
 ```
 
-As you calculate higher and higher order of numbers, the algorithm takes longer and longer (exponentially) grows. This is a very, very expensive algorithm, so how can we make it really fast? This is where an important topic comes in, called Memoization.
+### Performance Issues
+The naive implementation has exponential time complexity because:
+- Numbers are recalculated multiple times
+- Each recursive call spawns two more calls
+- Computation time grows exponentially with input size
 
-## Memoization
-
-To understand Memoization, it's useful to understand what Fibonacci struggles with. Numbers are recalculated over and over again.
-
-Memoization is an optimization technique that stores expensive calculated results and returns them when asked for again. It's like caching expensive results. This process reduces the Big O Notation from exponential to O(n) Linear Time!
+## Optimized Implementation with Memoization
+Memoization is an optimization technique that:
+- Stores previously calculated results
+- Returns cached results when the same calculation is needed
+- Reduces time complexity from exponential to O(n) (Linear Time)
 
 ```swift
-fibNaive(20) // 20 = 13s / 22 = 54 s
-
+// Cache for storing calculated Fibonacci numbers
 var memo = [Int: Int]()
 
 func fib(_ n: Int) -> Int {
-    if n == 0 { return 0}
+    // Base cases
+    if n == 0 { return 0 }
     else if n == 1 { return 1 }
-
+    
+    // Check if result is already calculated
     if let result = memo[n] { return result }
-
+    
+    // Calculate and store result
     memo[n] = fib(n - 1) + fib(n - 2)
-
     return memo[n]!
 }
 
-fib(22) // 70 max
+// Example usage:
+// fib(22) // Calculates instantly
+// Can handle up to fib(70) before integer overflow
 ```
+
+### Performance Comparison
+- Naive Implementation (fibNaive):
+  - n=20: ~13 seconds
+  - n=22: ~54 seconds
+  
+- Memoized Implementation (fib):
+  - n=22: instant calculation
+  - Can efficiently calculate up to n=70 (limited by integer size, not performance)
