@@ -23,3 +23,30 @@ func fibNaive(_ n: Int) -> Int {
 
 fibNaive(20) // 20 = 13s / 22 = 54 s
 ```
+
+As you calculate higher and higher order of numbers, the algorithm takes longer and longer (exponentially) grows. This is a very, very expensive algorithm, so how can we make it really fast? This is where an important topic comes in, called Memoization.
+
+## Memoization
+
+To understand Memoization, it's useful to understand what Fibonacci struggles with. Numbers are recalculated over and over again.
+
+Memoization is an optimization technique that stores expensive calculated results and returns them when asked for again. It's like caching expensive results.
+
+```swift
+fibNaive(20) // 20 = 13s / 22 = 54 s
+
+var memo = [Int: Int]()
+
+func fib(_ n: Int) -> Int {
+    if n == 0 { return 0}
+    else if n == 1 { return 1 }
+
+    if let result = memo[n] { return result }
+
+    memo[n] = fib(n - 1) + fib(n - 2)
+
+    return memo[n]!
+}
+
+fib(22) // 70 max
+```
