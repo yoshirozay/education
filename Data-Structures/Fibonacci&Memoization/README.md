@@ -1,7 +1,7 @@
 ## What is a Fibonacci series?
 1,1,2,3,5,8,13,21...
 
-f = fib(n-1) + fib(n-2)
+fn = f(n-1) + f(n-2)
 
 Series of numbers where every number, after the first two, is the sum of the two preceding ones.
 
