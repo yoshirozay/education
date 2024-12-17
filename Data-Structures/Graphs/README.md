@@ -136,3 +136,57 @@ Starts at a node, and drives deep into the graph ignoring all other nodes on the
 These algorithms are similar, one is based off a Queue and the other a Stack
 
 DPS uses a Stack instead of a Queue. Visit nodes, mark them as visited, as we visit them, we push them and pop them off the stack. In depth first, we start with our neighbours, add them to the stack (instead of the queue) and mark them as visited. We take our most recent popped value, check if it has neighbours, add the neighbors to the stack, mark the neighbour as visited, add its neighbours to the stack, pop them off, and so on. 
+
+```swift
+    func DFS(s: Int) -> [Int] {
+        
+        var result = [Int]()
+        
+        // Mark all vertices as not visited
+        var visited = adj.map { _ in false }
+        
+        // Create DFS Stack
+        var stack = Stack<Int>()
+        
+        // Mark first vertex as visited and enqueue
+//        print("Starting at \(s)")
+        visited[s] = true
+        stack.push(s)
+        
+        while stack.count > 0 {
+            let current = stack.pop()!
+//            print("Popping \(current)")
+            result.append(current)
+            
+            // Iterate over all neighbours adding to queue and popping deep as we go
+            for n in adj[current] {
+                if visited[n] == false {
+                    visited[n] = true
+//                    print("Pushing - \(n)")
+                    stack.push(n)
+                }
+            }
+        }
+        
+        return result
+    }
+//
+Starting at 0
+Popping 0
+Pushing - 1
+Popping 1
+Pushing - 4
+Pushing - 5
+Popping 5
+Pushing - 3
+Pushing - 2
+Popping 2
+Pushing - 7
+Popping 7
+Popping 3
+Popping 4
+Pushing - 6
+Popping 6
+[0, 1, 5, 2, 7, 3, 4, 6]
+//
+```
